@@ -17,7 +17,7 @@ const routes: Array<RouteRecordRaw> = [
             },
             {
                 path: 'cat-fact-list',
-                component: () => import('@/views/CatFactList.vue')
+                component: () => import('@/views/CatFactListPage.vue')
             },
             {
                 path: 'favorites',

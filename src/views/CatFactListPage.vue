@@ -9,17 +9,18 @@
             <loading-card v-if="isLoading" />
             <error-card v-else-if="isError" />
             <ion-list v-else>
-                <ion-item color="light" class="list-item ion-margin" v-for="(catFact, index) in catFatcs?.data"
-                    :key="index">
-                    <ion-avatar class="avatar" aria-hidden="true" slot="start">
-                        <img alt="cat" :src="imageSrc(index)" />
-                    </ion-avatar>
-                    <ion-label>{{ limitString(catFact.fact, 50) }}</ion-label>
-                    <ion-icon aria-label="add to favorites" color="warning" @click="toggleFavorite(catFact.fact)"
-                        v-if="isFavorite(catFact.fact)" :icon="star" />
-                    <ion-icon aria-label="remove from favorites" @click="toggleFavorite(catFact.fact)" v-else
-                        :icon="starOutline" />
-                </ion-item>
+                <div v-for="(catFact, index) in catFatcs?.data" :key="index">
+                    <ion-item @click="openDetailsDialog(catFact.fact)" color="light" class="list-item ion-margin">
+                        <ion-avatar class="avatar" aria-hidden="true" slot="start">
+                            <img alt="cat" :src="imageSrc(index)" />
+                        </ion-avatar>
+                        <ion-label>{{ limitString(catFact.fact, 50) }}</ion-label>
+                        <ion-icon aria-label="add to favorites" color="warning"
+                            @click="toggleFavorite(catFact.fact, $event)" v-if="isFavorite(catFact.fact)" :icon="star" />
+                        <ion-icon aria-label="remove from favorites" @click="toggleFavorite(catFact.fact, $event)" v-else
+                            :icon="starOutline" />
+                    </ion-item>
+                </div>
             </ion-list>
         </ion-content>
     </ion-page>
@@ -40,8 +41,9 @@ import {
 } from "@ionic/vue";
 import { star, starOutline } from "ionicons/icons";
 import { useCatsQuery } from "../api/useCatsQuery";
-import { favoritesStore } from "@/stores/favoritesStore";
+import { useFavoriteStore } from "@/stores/favoritesStore";
 import { storeToRefs } from "pinia";
+import { useModalStore } from "@/stores/modalStore";
 import { limitString } from "@/utils/utils";
 import LoadingCard from "@/components/LoadingCard.vue";
 import ErrorCard from "@/components/ErrorCard.vue";
@@ -53,8 +55,10 @@ import ErrorCard from "@/components/ErrorCard.vue";
 const images = import.meta.glob('@/assets/cat*.png', { eager: true });
 
 const { data: catFatcs, isError, isLoading } = useCatsQuery();
-const favStore = favoritesStore();
+const favStore = useFavoriteStore();
+const mStore = useModalStore();
 const { isFavorite, toggleFavorite } = storeToRefs(favStore);
+const { setOpen: openDetailsDialog } = mStore;
 const imageSrc = (index: number) => {
     const imagePaths = Object.keys(images);
     // We have 10 images, hence `% 10`.

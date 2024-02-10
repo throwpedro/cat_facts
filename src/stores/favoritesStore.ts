@@ -3,14 +3,15 @@ import { onMounted, ref, watch } from "vue";
 
 const LOCAL_STORAGE_KEY = "favorites";
 
-export const favoritesStore = defineStore("favoritesStore", () => {
+export const useFavoriteStore = defineStore("favoritesStore", () => {
     const favorites = ref<string[]>([]);
 
     const isFavorite = ref((catfact: string) => {
         return favorites.value.includes(catfact);
     });
 
-    const toggleFavorite = ref((catfact: string) => {
+    const toggleFavorite = ref((catfact: string, event: Event) => {
+        event.stopPropagation();
         if (isFavorite.value(catfact)) {
             const index = favorites.value.indexOf(catfact);
             if (index !== -1) {

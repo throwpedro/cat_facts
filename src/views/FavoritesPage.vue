@@ -7,12 +7,14 @@
         </ion-header>
         <ion-content class="ion-padding">
             <ion-list v-if="favorites.length > 0">
-                <ion-item color="light" class="list-item ion-margin" v-for="(catFact, index) in favorites"
-                    v-bind:key="index">
-                    <ion-label>{{ limitString(catFact, 50) }}</ion-label>
-                    <ion-icon aria-label="remove from favorites" color="danger"
-                        @click="toggleFavorite(catFact), setToast('Removed from favorites')" :icon="trashOutline" />
-                </ion-item>
+                <div v-for="(catFact, index) in favorites" :key="index">
+                    <ion-item @click="openDetailsDialog(catFact)" color="light" class="list-item ion-margin">
+                        <ion-label>{{ limitString(catFact, 50) }}</ion-label>
+                        <ion-icon aria-label="remove from favorites" color="danger"
+                            @click="toggleFavorite(catFact, $event), setToast('Removed from favorites')"
+                            :icon="trashOutline" />
+                    </ion-item>
+                </div>
             </ion-list>
             <ion-card v-else class="ion-text-center">
                 <ion-card-content>
@@ -39,15 +41,18 @@ import {
     IonText,
 } from "@ionic/vue";
 import { trashOutline } from "ionicons/icons";
-import { favoritesStore } from "@/stores/favoritesStore";
-import { toastStore } from "@/stores/toastStore";
+import { useFavoriteStore } from "@/stores/favoritesStore";
+import { useToastStore } from "@/stores/toastStore";
+import { useModalStore } from "@/stores/modalStore";
 import { storeToRefs } from "pinia";
 import { limitString } from "@/utils/utils";
 
-const favStore = favoritesStore();
-const tStore = toastStore();
-const { favorites, toggleFavorite } = storeToRefs(favStore);
-const { setToast } = tStore;
+const favoritesStore = useFavoriteStore();
+const toastStore = useToastStore();
+const modalStore = useModalStore();
+const { favorites, toggleFavorite } = storeToRefs(favoritesStore);
+const { setOpen: openDetailsDialog } = modalStore;
+const { setToast } = toastStore;
 </script>
 
 <style scoped>

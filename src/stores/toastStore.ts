@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { readonly, ref } from "vue";
 
 
-export const toastStore = defineStore("toastStore", () => {
+export const useToastStore = defineStore("toastStore", () => {
     const _isOpen = ref(false);
     const _message = ref("");
     const isOpen = readonly(_isOpen);
