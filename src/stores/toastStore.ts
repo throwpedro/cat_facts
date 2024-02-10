@@ -4,8 +4,8 @@ import { readonly, ref } from "vue";
 
 export const toastStore = defineStore("toastStore", () => {
     const _isOpen = ref(false);
-    const isOpen = readonly(_isOpen);
     const _message = ref("");
+    const isOpen = readonly(_isOpen);
     const message = readonly(_message);
     const setToast = (msg: string) => {
         _isOpen.value = true;

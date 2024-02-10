@@ -50,7 +50,7 @@ import ErrorCard from "@/components/ErrorCard.vue";
 // vite does not allow us to inline `require()`.
 // We have to use `import.meta.glob` to import all images.
 // https://vitejs.dev/guide/features#glob-import
-const images = import.meta.glob('@/assets/*.png', { eager: true });
+const images = import.meta.glob('@/assets/cat*.png', { eager: true });
 
 const { data: catFatcs, isError, isLoading } = useCatsQuery();
 const favStore = favoritesStore();
