@@ -10,7 +10,7 @@
     </ion-header>
     <ion-content class="ion-padding">
       <ion-card class="ion-text-center ion-padding">
-        <img class="gif" alt="cat gif" src="@/assets/kitty.gif" />
+        <img class="gif" alt="cat gif" src="/cats/kitty.gif" />
         <ion-card-header>
           <ion-card-title color="success">Did you know?</ion-card-title>
         </ion-card-header>
