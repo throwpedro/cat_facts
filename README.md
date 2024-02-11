@@ -56,9 +56,9 @@ But here are some of the more notable ones:
 > The project does best in a mobile view, but it works on desktop as well.  
 > Dark mode might look slightly better, but light mode is also supported.  
   
-It might be worth keeping an eye out for `NOTE:` to see some comments I left for myself as others.  
+It might be worth keeping an eye out for `NOTE:` to see some comments I left for myself and others.  
 
 I added page 1 from the cat api as mockData.json.  
 On the off chance that that cat api is down go to:  
-[useCatsQuery](src/api/useCatsQuery.ts#L38) and comment in the axios calls that reads the json file  
-and comment out the original call fetching from the api.
+[useCatsQuery](src/api/useCatsQuery.ts#L38) and comment in the axios call that reads the json file  
+then comment out the original call fetching from the api.
