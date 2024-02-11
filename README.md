@@ -22,7 +22,24 @@ ionic serve
 Should also be fine to run it with vite
 ```
 npm run dev
-```
+```  
+
+## Build for native (android)
+https://ionic.io/ -> Sign in/Dashboard is probably the easiest way.  
+
+Other wise:  
+> Have android studio installed 
+ 
+ ```
+ ionic build
+
+ ionic capacitor build android
+
+ npx cap open android
+ ```
+ Go to android studio 'Build' -> 'Build bundles/APK' -> Build APK  
+ Run the APK on your (android) phone.
+
 
 ## Tools
 
