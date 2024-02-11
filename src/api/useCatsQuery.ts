@@ -41,7 +41,7 @@ const fetchCats = async ({ pageParam = '1' }) => {
 // https://tanstack.com/query/v4/docs/framework/vue/guides/infinite-queries
 // The above link is a good resource on `infinite query`.
 // Hovering over properties in VsCode will give a brief description on some of the properties.
-// It's helpful to look at the consumer in src/views/CatFactListPage.vue#L68
+// It's helpful to look at the consumer in src/views/CatFactListPage.vue#L70
 // to see how the data is used.
 export const useCatsQuery = () => {
     return useInfiniteQuery({

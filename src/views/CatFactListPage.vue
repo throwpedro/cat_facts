@@ -64,6 +64,7 @@ import ErrorCard from "@/components/ErrorCard.vue";
 // This is opposed to just doing `src="@/assets/cat[index % 10].png"` on the img tag.
 // Relative paths doesn't get bundled properly by vite.
 // Using the absolute path might break a production build.
+// Some issues with the path on native devides, we'll live without cute cat pictures on phones.
 const images = import.meta.glob('@/assets/cat*.png', { eager: true });
 
 const { data: catFatcs, isError, isLoading, fetchNextPage, hasNextPage } = useCatsQuery();
