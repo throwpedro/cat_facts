@@ -1,9 +1,14 @@
 <template>
-    <ion-app>
-        <ion-router-outlet />
-        <details-modal></details-modal>
-        <ion-toast position-anchor="tabbar" :is-open="isOpen" :message="message" :duration="3000"></ion-toast>
-    </ion-app>
+  <ion-app>
+    <ion-router-outlet />
+    <details-modal></details-modal>
+    <ion-toast
+      position-anchor="tabbar"
+      :is-open="isOpen"
+      :message="message"
+      :duration="3000"
+    ></ion-toast>
+  </ion-app>
 </template>
 
 <script setup lang="ts">

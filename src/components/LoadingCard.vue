@@ -1,9 +1,9 @@
 <template>
-    <ion-card class="ion-text-center">
-        <ion-card-content>
-            <p>Loading...</p>
-        </ion-card-content>
-    </ion-card>
+  <ion-card class="ion-text-center">
+    <ion-card-content>
+      <p>Loading...</p>
+    </ion-card-content>
+  </ion-card>
 </template>
 
 <script setup lang="ts">
