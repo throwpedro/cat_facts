@@ -60,5 +60,5 @@ It might be worth keeping an eye out for `NOTE:` to see some comments I left for
 
 I added page 1 from the cat api as mockData.json.  
 On the off chance that that cat api is down go to:  
-src/api/useCatsQuery.ts#L36 and comment in the axios calls that reads the json file  
+[useCatsQuery](src/api/useCatsQuery.ts#L38) and comment in the axios calls that reads the json file  
 and comment out the original call fetching from the api.
