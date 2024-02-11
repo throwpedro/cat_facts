@@ -1,8 +1,15 @@
 # cat_facts
 ionic vue app, shows facts about cats.   
 
+> The project does best in a mobile view, but it works on desktop as well.  
+> Dark mode might look slightly better, but light mode is also supported.  
+
+You can find it running on github pages: https://throwpedro.github.io/cat_facts  
+Some bundling messed up the image imports, but they should work fine when running it locally.  
+Also routing messes with the url, so refreshing gives `404`.
+
 ## Project setup
-Works on node 20, I recommind using [nvm](https://github.com/nvm-sh/nvm)
+Works on node 20.x.x(and probably others), I recommind using [nvm](https://github.com/nvm-sh/nvm)
 
 ```
 nvm install 20  
@@ -52,13 +59,11 @@ But here are some of the more notable ones:
 - [ionic components](https://ionicframework.com/docs/components) - UI components
 - [ionic icons](https://ionic.io/ionicons) - icons
 
-## Notes
-> The project does best in a mobile view, but it works on desktop as well.  
-> Dark mode might look slightly better, but light mode is also supported.  
+## Notes  
   
 It might be worth keeping an eye out for `NOTE:` to see some comments I left for myself and others.  
 
-I added page 1 from the cat api as mockData.json.  
+I added page 1 from the cat api in `src/api/mockData.json`.  
 On the off chance that that cat api is down go to:  
-[useCatsQuery](src/api/useCatsQuery.ts#L38) and comment in the axios call that reads the json file  
-then comment out the original call fetching from the api.
+[useCatsQuery](src/api/useCatsQuery.ts#L38) and uncomment the axios call that reads the json file  
+then comment out the original call to the api.
