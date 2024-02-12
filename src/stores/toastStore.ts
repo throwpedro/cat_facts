@@ -1,16 +1,15 @@
 import { defineStore } from "pinia";
-import { readonly, ref } from "vue";
+import { ref } from "vue";
 
 export const useToastStore = defineStore("toastStore", () => {
-  const _isOpen = ref(false);
-  const _message = ref("");
-  const isOpen = readonly(_isOpen);
-  const message = readonly(_message);
+  const isOpen = ref(false);
+  const message = ref("");
   const setToast = (msg: string) => {
-    _isOpen.value = true;
-    _message.value = msg;
+    isOpen.value = true;
+    message.value = msg;
     setTimeout(() => {
-      _isOpen.value = false;
+      isOpen.value = false;
+      message.value = "";
     }, 3000);
   };
 
