@@ -45,7 +45,8 @@ Other wise:
  npx cap open android
  ```
  Go to android studio 'Build' -> 'Build bundles/APK' -> Build APK  
- Run the APK on your (android) phone.
+ Run the APK on your (android) phone.  
+ Againg with the cute cat images missing because of bundling.
 
 
 ## Tools
