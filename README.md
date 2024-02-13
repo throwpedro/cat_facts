@@ -6,7 +6,7 @@ ionic vue app, shows facts about cats.
 
 You can find it running on github pages: https://throwpedro.github.io/cat_facts  
 Some bundling messed up the image imports, but they should work fine when running it locally.  
-Also routing messes with the url, so refreshing gives `404`.
+Also routing messes with the url, so refreshing gives `404`, still works fine locally.
 
 ## Project setup
 Works on node 20.x.x(and probably others), I recommind using [nvm](https://github.com/nvm-sh/nvm)
